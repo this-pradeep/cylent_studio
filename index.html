@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cylent Studio — Videography & Photography</title>
+  <meta name="description" content="Cylent Studio — Professional videography and photography capturing stories that speak louder than words." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- Loader -->
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <div class="loader-logo">
+        <span class="loader-c">C</span><span class="loader-rest">ylent</span>
+        <span class="loader-dot">.</span>
+      </div>
+      <div class="loader-bar"><div class="loader-progress" id="loaderProgress"></div></div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo">
+        <span class="logo-c">C</span>ylent <span class="logo-studio">Studio</span>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="#about" class="nav-link" data-label="About">About</a>
+        <a href="#services" class="nav-link" data-label="Services">Services</a>
+        <a href="#portfolio" class="nav-link" data-label="Work">Work</a>
+        <a href="#process" class="nav-link" data-label="Process">Process</a>
+        <a href="#contact" class="nav-link" data-label="Contact">Contact</a>
+      </div>
+      <a href="#contact" class="nav-cta">Book Now</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-inner">
+      <a href="#about" class="mobile-nav-link">About</a>
+      <a href="#services" class="mobile-nav-link">Services</a>
+      <a href="#portfolio" class="mobile-nav-link">Work</a>
+      <a href="#process" class="mobile-nav-link">Process</a>
+      <a href="#contact" class="mobile-nav-link">Contact</a>
+    </div>
+  </div>
+
+  <!-- ======================== HERO ======================== -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <div class="hero-reel">
+        <!-- Simulated cinematic strips -->
+        <div class="reel-strip reel-1"></div>
+        <div class="reel-strip reel-2"></div>
+        <div class="reel-strip reel-3"></div>
+      </div>
+      <div class="hero-overlay"></div>
+      <!-- Decorative lens aperture rings -->
+      <div class="hero-aperture" aria-hidden="true"></div>
+    </div>
+
+    <div class="hero-content">
+
+      <!-- Accolades ticker strip -->
+      <div class="hero-accolades" aria-hidden="true">
+        <div class="hero-accolades-inner">
+          <span>Award-Winning Studio</span><span class="hacc-sep">✦</span>
+          <span>Santorini 2024</span><span class="hacc-sep">✦</span>
+          <span>250+ Projects Delivered</span><span class="hacc-sep">✦</span>
+          <span>Brand Films</span><span class="hacc-sep">✦</span>
+          <span>Editorial Photography</span><span class="hacc-sep">✦</span>
+          <span>Wedding Films</span><span class="hacc-sep">✦</span>
+          <span>Commercial Campaigns</span><span class="hacc-sep">✦</span>
+          <span>Award-Winning Studio</span><span class="hacc-sep">✦</span>
+          <span>Santorini 2024</span><span class="hacc-sep">✦</span>
+          <span>250+ Projects Delivered</span><span class="hacc-sep">✦</span>
+          <span>Brand Films</span><span class="hacc-sep">✦</span>
+          <span>Editorial Photography</span><span class="hacc-sep">✦</span>
+          <span>Wedding Films</span><span class="hacc-sep">✦</span>
+          <span>Commercial Campaigns</span><span class="hacc-sep">✦</span>
+        </div>
+      </div>
+
+      <h1 class="hero-title">
+        <span class="hero-word reveal-up" style="--delay: 0.1s">Through the <em>Lens</em></span>
+        <span class="hero-word reveal-up" style="--delay: 0.28s">of Light.</span>
+      </h1>
+      <p class="hero-sub reveal-up" style="--delay: 0.55s">
+        Premium videography &amp; photography — crafting cinematic stories that outlast the moment, frame by perfect frame.
+      </p>
+      <div class="hero-actions reveal-up" style="--delay: 0.7s">
+        <a href="#portfolio" class="btn btn-primary">View Our Work</a>
+        <a href="#contact" class="btn btn-ghost">Start a Project</a>
+      </div>
+    </div>
+
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="hero-scroll-line"></div>
+    </div>
+
+    <div class="hero-stats">
+      <div class="hero-stat reveal-up" style="--delay: 0.8s">
+        <span class="stat-number" data-target="250">0</span><span class="stat-plus">+</span>
+        <span class="stat-label">Projects</span>
+      </div>
+      <div class="hero-stat reveal-up" style="--delay: 0.9s">
+        <span class="stat-number" data-target="8">0</span><span class="stat-plus">+</span>
+        <span class="stat-label">Years Experience</span>
+      </div>
+      <div class="hero-stat reveal-up" style="--delay: 1.0s">
+        <span class="stat-number" data-target="98">0</span><span class="stat-plus">%</span>
+        <span class="stat-label">Client Satisfaction</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== REEL TICKER ======================== -->
+  <div class="ticker-wrap">
+    <div class="ticker">
+      <span>Weddings</span><span class="ticker-dot">✦</span>
+      <span>Commercials</span><span class="ticker-dot">✦</span>
+      <span>Portraits</span><span class="ticker-dot">✦</span>
+      <span>Events</span><span class="ticker-dot">✦</span>
+      <span>Short Films</span><span class="ticker-dot">✦</span>
+      <span>Brand Films</span><span class="ticker-dot">✦</span>
+      <span>Real Estate</span><span class="ticker-dot">✦</span>
+      <span>Fashion</span><span class="ticker-dot">✦</span>
+      <span>Weddings</span><span class="ticker-dot">✦</span>
+      <span>Commercials</span><span class="ticker-dot">✦</span>
+      <span>Portraits</span><span class="ticker-dot">✦</span>
+      <span>Events</span><span class="ticker-dot">✦</span>
+      <span>Short Films</span><span class="ticker-dot">✦</span>
+      <span>Brand Films</span><span class="ticker-dot">✦</span>
+      <span>Real Estate</span><span class="ticker-dot">✦</span>
+      <span>Fashion</span><span class="ticker-dot">✦</span>
+    </div>
+  </div>
+
+  <!-- ======================== ABOUT ======================== -->
+  <section class="about section" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-visual">
+          <div class="about-img-wrap">
+            <div class="about-img about-img-1" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);">
+              <div class="about-img-overlay">
+                <span class="about-img-label">Behind the lens</span>
+              </div>
+            </div>
+            <div class="about-img about-img-2" style="background: linear-gradient(135deg, #050b1a 0%, #0a1628 50%, #0d2040 100%);">
+              <div class="about-img-overlay">
+                <span class="about-img-label">On location</span>
+              </div>
+            </div>
+            <div class="about-years-badge">
+              <span class="badge-number">8</span>
+              <span class="badge-text">Years<br/>of Vision</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-content">
+          <div class="section-tag reveal-left">Our Story</div>
+          <h2 class="section-title reveal-left" style="--delay: 0.1s">
+            We don't just <em>capture</em> moments —<br/>we <em>architect</em> them.
+          </h2>
+          <p class="about-text reveal-left" style="--delay: 0.2s">
+            Cylent Studio was born from a simple belief: the most powerful stories are told without words. Founded on a passion for cinematic storytelling, we blend technical precision with artistic intuition to create visuals that resonate long after the screen fades to black.
+          </p>
+          <p class="about-text reveal-left" style="--delay: 0.3s">
+            From intimate weddings to high-energy commercials, editorial portraits to documentary films — every project is approached with the same devotion: finding the extraordinary within the ordinary.
+          </p>
+          <div class="about-tags reveal-left" style="--delay: 0.4s">
+            <span class="tag">Cinematic</span>
+            <span class="tag">Editorial</span>
+            <span class="tag">Authentic</span>
+            <span class="tag">Timeless</span>
+          </div>
+          <a href="#contact" class="btn btn-primary reveal-left" style="--delay: 0.5s">Let's Create Together</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== SERVICES ======================== -->
+  <section class="services section" id="services">
+    <div class="container">
+      <div class="section-header centered">
+        <div class="section-tag reveal-up">What We Do</div>
+        <h2 class="section-title reveal-up" style="--delay: 0.1s">Services Built for <em>Impact</em></h2>
+        <p class="section-sub reveal-up" style="--delay: 0.2s">Every medium, mastered. Every story, told with purpose.</p>
+      </div>
+      <div class="services-grid">
+
+        <div class="service-card reveal-up" style="--delay: 0.1s">
+          <div class="service-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="4" y="10" width="34" height="24" rx="2"/>
+              <path d="M38 18l6-4v16l-6-4"/>
+              <circle cx="21" cy="22" r="5"/>
+            </svg>
+          </div>
+          <div class="service-num">01</div>
+          <h3 class="service-title">Videography</h3>
+          <p class="service-desc">Cinematic video production for weddings, events, commercials, brand films, and more. We tell your story in motion.</p>
+          <ul class="service-list">
+            <li>Wedding Films</li>
+            <li>Brand & Commercial</li>
+            <li>Event Coverage</li>
+            <li>Short Films & Docs</li>
+          </ul>
+          <a href="#contact" class="service-link">Enquire <span>→</span></a>
+        </div>
+
+        <div class="service-card reveal-up featured" style="--delay: 0.2s">
+          <div class="service-badge">Most Popular</div>
+          <div class="service-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="24" cy="24" r="10"/>
+              <path d="M24 4v4M24 40v4M4 24h4M40 24h4"/>
+              <path d="M10.1 10.1l2.8 2.8M35.1 35.1l2.8 2.8M35.1 10.1l-2.8 2.8M10.1 35.1l2.8 2.8"/>
+              <circle cx="24" cy="24" r="18" stroke-dasharray="4 4"/>
+            </svg>
+          </div>
+          <div class="service-num">02</div>
+          <h3 class="service-title">Photography</h3>
+          <p class="service-desc">Still images that carry the weight of the world. Portrait, editorial, lifestyle, and commercial photography done with intention.</p>
+          <ul class="service-list">
+            <li>Portrait Sessions</li>
+            <li>Editorial & Fashion</li>
+            <li>Commercial & Product</li>
+            <li>Wedding & Events</li>
+          </ul>
+          <a href="#contact" class="service-link">Enquire <span>→</span></a>
+        </div>
+
+        <div class="service-card reveal-up" style="--delay: 0.3s">
+          <div class="service-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="6" y="8" width="36" height="28" rx="2"/>
+              <path d="M14 36v4M34 36v4M10 40h28"/>
+              <path d="M18 20l4 4-4 4M24 28h6"/>
+            </svg>
+          </div>
+          <div class="service-num">03</div>
+          <h3 class="service-title">Post-Production</h3>
+          <p class="service-desc">World-class colour grading, editing, and sound design that transform raw footage into cinematic masterpieces.</p>
+          <ul class="service-list">
+            <li>Colour Grading</li>
+            <li>Video Editing</li>
+            <li>Photo Retouching</li>
+            <li>Sound Design</li>
+          </ul>
+          <a href="#contact" class="service-link">Enquire <span>→</span></a>
+        </div>
+
+        <div class="service-card reveal-up" style="--delay: 0.4s">
+          <div class="service-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M24 4L28 16h13l-10.5 7.6 4 12.4L24 28.5 13.5 36l4-12.4L7 16h13z"/>
+            </svg>
+          </div>
+          <div class="service-num">04</div>
+          <h3 class="service-title">Aerial & Drone</h3>
+          <p class="service-desc">Breathtaking aerial perspectives that add a cinematic dimension to any project. Licensed and insured drone operators.</p>
+          <ul class="service-list">
+            <li>Aerial Video</li>
+            <li>Drone Photography</li>
+            <li>Real Estate</li>
+            <li>Event Coverage</li>
+          </ul>
+          <a href="#contact" class="service-link">Enquire <span>→</span></a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== PORTFOLIO ======================== -->
+  <section class="portfolio section" id="portfolio">
+    <div class="container">
+      <div class="section-header centered">
+        <div class="section-tag reveal-up">Our Work</div>
+        <h2 class="section-title reveal-up" style="--delay: 0.1s">A Frame Worth a <em>Thousand Words</em></h2>
+      </div>
+
+      <!-- Filter -->
+      <div class="portfolio-filters reveal-up" style="--delay: 0.2s">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="video">Video</button>
+        <button class="filter-btn" data-filter="photo">Photo</button>
+        <button class="filter-btn" data-filter="wedding">Wedding</button>
+        <button class="filter-btn" data-filter="commercial">Commercial</button>
+      </div>
+
+      <!-- Grid -->
+      <div class="portfolio-grid" id="portfolioGrid">
+
+        <div class="portfolio-item" data-category="video wedding" data-index="0">
+          <div class="portfolio-media" style="background: linear-gradient(135deg, #1a0533 0%, #6b21a8 50%, #ec4899 100%);">
+            <div class="portfolio-play">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <span class="portfolio-cat">Wedding Film</span>
+            <h3 class="portfolio-title">Aria & James</h3>
+            <p class="portfolio-loc">Santorini, Greece</p>
+          </div>
+        </div>
+
+        <div class="portfolio-item large" data-category="photo commercial" data-index="1">
+          <div class="portfolio-media" style="background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0ea5e9 100%);">
+          </div>
+          <div class="portfolio-info">
+            <span class="portfolio-cat">Commercial</span>
+            <h3 class="portfolio-title">Lumière Cosmetics</h3>
+            <p class="portfolio-loc">Campaign 2024</p>
+          </div>
+        </div>
+
+        <div class="portfolio-item" data-category="photo" data-index="2">
+          <div class="portfolio-media" style="background: linear-gradient(135deg, #1c0a00 0%, #b45309 50%, #fbbf24 100%);">
+          </div>
+          <div class="portfolio-info">
+            <span class="portfolio-cat">Portrait</span>
+            <h3 class="portfolio-title">Margaux Editorial</h3>
+            <p class="portfolio-loc">Paris, France</p>
+          </div>
+        </div>
+
+        <div class="portfolio-item" data-category="video commercial" data-index="3">
+          <div class="portfolio-media" style="background: linear-gradient(135deg, #064e3b 0%, #059669 50%, #a7f3d0 100%);">
+            <div class="portfolio-play">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <span class="portfolio-cat">Brand Film</span>
+            <h3 class="portfolio-title">Verdant Spirits</h3>
+            <p class="portfolio-loc">Cape Town, SA</p>
+          </div>
+        </div>
+
+        <div class="portfolio-item tall" data-category="wedding photo" data-index="4">
+          <div class="portfolio-media" style="background: linear-gradient(135deg, #1e1b4b 0%, #7c3aed 50%, #c4b5fd 100%);">
+          </div>
+          <div class="portfolio-info">
+            <span class="portfolio-cat">Wedding</span>
+            <h3 class="portfolio-title">The Pemberton Estate</h3>
+            <p class="portfolio-loc">Tuscany, Italy</p>
+          </div>
+        </div>
+
+        <div class="portfolio-item" data-category="video" data-index="5">
+          <div class="portfolio-media" style="background: linear-gradient(135deg, #7f1d1d 0%, #dc2626 50%, #fca5a5 100%);">
+            <div class="portfolio-play">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <span class="portfolio-cat">Short Film</span>
+            <h3 class="portfolio-title">Echoes</h3>
+            <p class="portfolio-loc">Award Winning</p>
+          </div>
+        </div>
+
+        <div class="portfolio-item" data-category="photo commercial" data-index="6">
+          <div class="portfolio-media" style="background: linear-gradient(135deg, #0c0a09 0%, #44403c 50%, #a8a29e 100%);">
+          </div>
+          <div class="portfolio-info">
+            <span class="portfolio-cat">Commercial</span>
+            <h3 class="portfolio-title">Obsidian Watches</h3>
+            <p class="portfolio-loc">Product Campaign</p>
+          </div>
+        </div>
+
+        <div class="portfolio-item large" data-category="video wedding" data-index="7">
+          <div class="portfolio-media" style="background: linear-gradient(135deg, #134e4a 0%, #0d9488 40%, #5eead4 100%);">
+            <div class="portfolio-play">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <span class="portfolio-cat">Wedding Film</span>
+            <h3 class="portfolio-title">Sofia & Marco</h3>
+            <p class="portfolio-loc">Amalfi Coast, Italy</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="portfolio-more reveal-up">
+        <a href="#contact" class="btn btn-ghost">View Full Portfolio</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== PROCESS ======================== -->
+  <section class="process section" id="process">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag reveal-left">How We Work</div>
+        <h2 class="section-title reveal-left" style="--delay: 0.1s">Your Story, <em>Our Process</em></h2>
+      </div>
+      <div class="process-steps">
+
+        <div class="process-step reveal-up" style="--delay: 0.1s">
+          <div class="step-number">01</div>
+          <div class="step-content">
+            <h3 class="step-title">Discovery Call</h3>
+            <p class="step-desc">We start by listening. Your vision, your story, your needs. A free 30-minute consultation to understand exactly what you're looking for.</p>
+          </div>
+          <div class="step-line"></div>
+        </div>
+
+        <div class="process-step reveal-up" style="--delay: 0.2s">
+          <div class="step-number">02</div>
+          <div class="step-content">
+            <h3 class="step-title">Creative Planning</h3>
+            <p class="step-desc">We develop a tailored creative brief, shot list, and timeline. Every detail is planned so the shoot itself can be spontaneous and inspired.</p>
+          </div>
+          <div class="step-line"></div>
+        </div>
+
+        <div class="process-step reveal-up" style="--delay: 0.3s">
+          <div class="step-number">03</div>
+          <div class="step-content">
+            <h3 class="step-title">Production Day</h3>
+            <p class="step-desc">We bring the vision to life on set. Professional-grade equipment, expert crew, and a calm, creative atmosphere that lets the best moments emerge.</p>
+          </div>
+          <div class="step-line"></div>
+        </div>
+
+        <div class="process-step reveal-up" style="--delay: 0.4s">
+          <div class="step-number">04</div>
+          <div class="step-content">
+            <h3 class="step-title">Post & Delivery</h3>
+            <p class="step-desc">Meticulous editing, colour grading, and sound design. Your final deliverables are polished to perfection and delivered on time, every time.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== TESTIMONIALS ======================== -->
+  <section class="testimonials section" id="testimonials">
+    <div class="container">
+      <div class="section-header centered">
+        <div class="section-tag reveal-up">Kind Words</div>
+        <h2 class="section-title reveal-up" style="--delay: 0.1s">What Our Clients <em>Say</em></h2>
+      </div>
+
+      <div class="testimonials-stage reveal-up" style="--delay: 0.2s">
+
+        <!-- Large feature quote panel -->
+        <div class="testi-feature">
+          <div class="testi-quotemark" aria-hidden="true">&ldquo;</div>
+          <p class="testi-stars">★★★★★</p>
+          <blockquote class="testi-quote" id="testiQuote">
+            Cylent Studio captured our wedding in a way that still gives us chills every time we watch it. It doesn't feel like a video — it feels like a film about us. We're forever grateful.
+          </blockquote>
+          <footer class="testi-author">
+            <div class="testi-avatar" id="testiAvatar" style="background: linear-gradient(135deg, #7c3aed, #ec4899);">A</div>
+            <div class="testi-meta">
+              <strong class="testi-name" id="testiName">Aria Pemberton</strong>
+              <span class="testi-role" id="testiRole">Bride, Santorini Wedding</span>
+            </div>
+          </footer>
+        </div>
+
+        <!-- Sidebar client index -->
+        <nav class="testi-index" id="testiIndex" aria-label="Client testimonials">
+
+          <div class="testi-index-item active" data-idx="0"
+               data-quote="Cylent Studio captured our wedding in a way that still gives us chills every time we watch it. It doesn't feel like a video — it feels like a film about us. We're forever grateful."
+               data-name="Aria Pemberton" data-role="Bride, Santorini Wedding"
+               data-init="A" data-grad="linear-gradient(135deg, #7c3aed, #ec4899)">
+            <div class="tii-avatar" style="background: linear-gradient(135deg, #7c3aed, #ec4899);">A</div>
+            <div class="tii-info">
+              <strong>Aria Pemberton</strong>
+              <span>Bride, Santorini Wedding</span>
+            </div>
+            <div class="tii-line"><span class="tii-fill"></span></div>
+          </div>
+
+          <div class="testi-index-item" data-idx="1"
+               data-quote="The brand film they produced for us exceeded every expectation. The team was professional, creative, and truly understood our brand identity. Sales increased 40% after launch."
+               data-name="David Chen" data-role="CEO, Verdant Spirits"
+               data-init="D" data-grad="linear-gradient(135deg, #059669, #0ea5e9)">
+            <div class="tii-avatar" style="background: linear-gradient(135deg, #059669, #0ea5e9);">D</div>
+            <div class="tii-info">
+              <strong>David Chen</strong>
+              <span>CEO, Verdant Spirits</span>
+            </div>
+            <div class="tii-line"><span class="tii-fill"></span></div>
+          </div>
+
+          <div class="testi-index-item" data-idx="2"
+               data-quote="Working with Cylent is unlike any other photographer I've worked with. They don't just take photos — they craft an experience. My editorial spread was breathtaking."
+               data-name="Margaux Leclerc" data-role="Fashion Model"
+               data-init="M" data-grad="linear-gradient(135deg, #b45309, #dc2626)">
+            <div class="tii-avatar" style="background: linear-gradient(135deg, #b45309, #dc2626);">M</div>
+            <div class="tii-info">
+              <strong>Margaux Leclerc</strong>
+              <span>Fashion Model</span>
+            </div>
+            <div class="tii-line"><span class="tii-fill"></span></div>
+          </div>
+
+          <div class="testi-index-item" data-idx="3"
+               data-quote="Our product campaign photos were absolutely stunning. The attention to detail and the ability to make our watches look like art is extraordinary. Highly recommend."
+               data-name="Robert Ashworth" data-role="Creative Dir., Obsidian Watches"
+               data-init="R" data-grad="linear-gradient(135deg, #3b82f6, #0ea5e9)">
+            <div class="tii-avatar" style="background: linear-gradient(135deg, #3b82f6, #0ea5e9);">R</div>
+            <div class="tii-info">
+              <strong>Robert Ashworth</strong>
+              <span>Creative Dir., Obsidian Watches</span>
+            </div>
+            <div class="tii-line"><span class="tii-fill"></span></div>
+          </div>
+
+        </nav>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== CTA BANNER ======================== -->
+  <section class="cta-banner">
+    <div class="cta-bg"></div>
+    <div class="cta-content">
+      <div class="section-tag reveal-up">Ready to Begin?</div>
+      <h2 class="cta-title reveal-up" style="--delay: 0.1s">
+        Your story deserves<br/>to be <em>seen</em>.
+      </h2>
+      <p class="cta-sub reveal-up" style="--delay: 0.2s">
+        Let's build something extraordinary together.
+      </p>
+      <a href="#contact" class="btn btn-primary reveal-up" style="--delay: 0.3s">Start Your Project</a>
+    </div>
+  </section>
+
+  <!-- ======================== CONTACT ======================== -->
+  <section class="contact section" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="section-tag reveal-left">Get in Touch</div>
+          <h2 class="section-title reveal-left" style="--delay: 0.1s">Let's Make Something <em>Beautiful</em></h2>
+          <p class="contact-desc reveal-left" style="--delay: 0.2s">
+            Whether it's a wedding, a brand film, or a portrait session — we'd love to hear about your vision. Reach out and let's start the conversation.
+          </p>
+          <div class="contact-details reveal-left" style="--delay: 0.3s">
+            <div class="contact-detail">
+              <div class="contact-detail-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+              </div>
+              <div>
+                <div class="contact-detail-label">Studio</div>
+                <div class="contact-detail-value">Available Worldwide</div>
+              </div>
+            </div>
+            <div class="contact-detail">
+              <div class="contact-detail-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.7A2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.56-.56a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/>
+                </svg>
+              </div>
+              <div>
+                <div class="contact-detail-label">Phone</div>
+                <div class="contact-detail-value">+1 (555) 000-0000</div>
+              </div>
+            </div>
+            <div class="contact-detail">
+              <div class="contact-detail-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                  <polyline points="22,6 12,13 2,6"/>
+                </svg>
+              </div>
+              <div>
+                <div class="contact-detail-label">Email</div>
+                <div class="contact-detail-value">hello@cylent.studio</div>
+              </div>
+            </div>
+          </div>
+          <div class="contact-social reveal-left" style="--delay: 0.4s">
+            <a href="#" class="social-link" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="2" width="20" height="20" rx="5"/>
+                <circle cx="12" cy="12" r="4"/>
+                <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
+              </svg>
+            </a>
+            <a href="#" class="social-link" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/>
+                <polygon points="9.75,15.02 15.5,12 9.75,8.98 9.75,15.02" fill="currentColor" stroke="none"/>
+              </svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Vimeo">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M22 7.42c-.09 2.01-1.49 4.76-4.21 8.26C14.96 19.3 12.63 21 10.71 21c-1.19 0-2.2-1.1-3.03-3.32L6.24 13.1C5.6 10.88 4.93 9.77 4.2 9.77c-.16 0-.71.33-1.66.99L1.5 9.64c1.05-.92 2.08-1.84 3.1-2.77 1.4-1.21 2.45-1.85 3.15-1.91 1.65-.16 2.67.97 3.05 3.38.41 2.6.7 4.22.85 4.86.47 2.15.99 3.22 1.55 3.22.44 0 1.1-.7 1.98-2.09.88-1.39 1.35-2.45 1.41-3.18.13-1.2-.34-1.8-1.41-1.8-.5 0-1.02.11-1.55.34.97-3.2 2.83-4.76 5.59-4.67 2.04.06 3 1.38 2.88 3.98z"/>
+              </svg>
+            </a>
+            <a href="#" class="social-link" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/>
+                <rect x="2" y="9" width="4" height="12"/>
+                <circle cx="4" cy="4" r="2"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-form-wrap reveal-right">
+          <form class="contact-form" id="contactForm" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="name">Full Name</label>
+                <input class="form-input" type="text" id="name" name="name" placeholder="Your name" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="email">Email Address</label>
+                <input class="form-input" type="email" id="email" name="email" placeholder="your@email.com" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="service">Service Interest</label>
+              <select class="form-input form-select" id="service" name="service">
+                <option value="" disabled selected>Select a service</option>
+                <option value="videography">Videography</option>
+                <option value="photography">Photography</option>
+                <option value="post">Post-Production</option>
+                <option value="drone">Aerial / Drone</option>
+                <option value="wedding">Wedding Package</option>
+                <option value="other">Other / Multiple</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="date">Project Date (if known)</label>
+              <input class="form-input" type="date" id="date" name="date" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="message">Tell Us About Your Project</label>
+              <textarea class="form-input form-textarea" id="message" name="message" placeholder="Describe your vision, goals, and any details that matter to you..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
+              <span class="btn-text">Send Enquiry</span>
+              <span class="btn-icon">→</span>
+            </button>
+            <div class="form-success" id="formSuccess">
+              <div class="success-icon">✓</div>
+              <div class="success-text">Message sent! We'll be in touch within 24 hours.</div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== FOOTER ======================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <span class="logo-c">C</span>ylent <span class="logo-studio">Studio</span>
+          </div>
+          <p class="footer-tagline">Silence Speaks Volumes.</p>
+          <p class="footer-copy">&copy; 2026 Cylent Studio. All rights reserved.</p>
+        </div>
+        <div class="footer-links-wrap">
+          <div class="footer-col">
+            <h4 class="footer-col-title">Navigate</h4>
+            <a href="#about" class="footer-link">About</a>
+            <a href="#services" class="footer-link">Services</a>
+            <a href="#portfolio" class="footer-link">Portfolio</a>
+            <a href="#process" class="footer-link">Process</a>
+            <a href="#contact" class="footer-link">Contact</a>
+          </div>
+          <div class="footer-col">
+            <h4 class="footer-col-title">Services</h4>
+            <a href="#services" class="footer-link">Videography</a>
+            <a href="#services" class="footer-link">Photography</a>
+            <a href="#services" class="footer-link">Post-Production</a>
+            <a href="#services" class="footer-link">Aerial & Drone</a>
+          </div>
+          <div class="footer-col">
+            <h4 class="footer-col-title">Legal</h4>
+            <a href="#" class="footer-link">Privacy Policy</a>
+            <a href="#" class="footer-link">Terms of Use</a>
+            <a href="#" class="footer-link">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Crafted with passion. Built for story.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="YouTube">YT</a>
+          <a href="#" aria-label="Vimeo">VM</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
