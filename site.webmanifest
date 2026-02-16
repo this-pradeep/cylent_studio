@@ -1,0 +1,26 @@
+{
+  "name": "Cylent Studio",
+  "short_name": "Cylent",
+  "description": "Award-winning videography & photography studio delivering cinematic wedding films, brand campaigns, and editorial portraits worldwide.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#07090F",
+  "theme_color": "#07090F",
+  "icons": [
+    {
+      "src": "/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

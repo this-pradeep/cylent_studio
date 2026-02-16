@@ -5,31 +5,129 @@
 
 'use strict';
 
-/* ── Loader ─────────────────────────────────────────────────── */
+/* ── Aperture Loader ────────────────────────────────────────── */
 (function initLoader() {
-  const loader   = document.getElementById('loader');
-  const progress = document.getElementById('loaderProgress');
-  if (!loader || !progress) return;
+  const loader     = document.getElementById('loader');
+  const svg        = document.getElementById('apertureSvg');
+  const maskRect   = document.getElementById('aMaskRect');
+  const aOverlay   = document.getElementById('aOverlay');
+  const hole       = document.getElementById('aHole');
+  const glow       = document.getElementById('aGlow');
+  const bladesGrp  = document.getElementById('aBlades');
+  const logoCenter = document.getElementById('apertureLogoCenter');
 
-  let pct = 0;
-  const tick = setInterval(() => {
-    pct += Math.random() * 18 + 4;
-    if (pct >= 100) {
-      pct = 100;
-      clearInterval(tick);
-      progress.style.width = '100%';
-      setTimeout(() => {
-        loader.classList.add('hidden');
-        document.body.style.overflow = '';
-        initScrollAnimations();
-        initCounters();
-      }, 500);
-    } else {
-      progress.style.width = pct + '%';
-    }
-  }, 80);
-
+  if (!loader) return;
   document.body.style.overflow = 'hidden';
+
+  // Graceful fallback if SVG is not available
+  if (!svg || !hole) {
+    setTimeout(() => {
+      loader.classList.add('hidden');
+      document.body.style.overflow = '';
+      initScrollAnimations();
+      initCounters();
+    }, 1600);
+    return;
+  }
+
+  const W   = window.innerWidth;
+  const H   = window.innerHeight;
+  const cx  = W / 2;
+  const cy  = H / 2;
+  // Radius that fully covers all four corners
+  const maxR = Math.sqrt(cx * cx + cy * cy) * 1.18;
+  const N   = 8; // number of aperture blades
+
+  // Configure SVG coordinate space to match viewport
+  svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+  maskRect.setAttribute('width', W);
+  maskRect.setAttribute('height', H);
+  aOverlay.setAttribute('width', W);
+  aOverlay.setAttribute('height', H);
+
+  /* Build a 2N-point star polygon simulating overlapping iris blades.
+     Outer vertices = blade tips; inner vertices = blade notches.
+     As the aperture opens, the inner radius merges toward the outer
+     radius, softening the notches into a smooth circle. */
+  function buildPoints(outerR, innerR, rotDeg) {
+    const pts = [];
+    const rot = rotDeg * Math.PI / 180;
+    for (let i = 0; i < N * 2; i++) {
+      const angle = (i / (N * 2)) * Math.PI * 2 + rot - Math.PI / 2;
+      const r     = i % 2 === 0 ? outerR : innerR;
+      pts.push(`${(cx + r * Math.cos(angle)).toFixed(1)},${(cy + r * Math.sin(angle)).toFixed(1)}`);
+    }
+    return pts.join(' ');
+  }
+
+  /* Build decorative blade lines from center to each outer vertex */
+  function buildBladeLines(outerR, rotDeg) {
+    bladesGrp.innerHTML = '';
+    const rot = rotDeg * Math.PI / 180;
+    for (let i = 0; i < N; i++) {
+      const angle = (i / N) * Math.PI * 2 + rot - Math.PI / 2;
+      const line  = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      line.setAttribute('x1', cx);
+      line.setAttribute('y1', cy);
+      line.setAttribute('x2', (cx + outerR * Math.cos(angle)).toFixed(1));
+      line.setAttribute('y2', (cy + outerR * Math.sin(angle)).toFixed(1));
+      bladesGrp.appendChild(line);
+    }
+  }
+
+  // Initialise as a single centre point (fully closed)
+  hole.setAttribute('points', `${cx},${cy}`);
+  glow.setAttribute('points', `${cx},${cy}`);
+
+  /* ── Phase 1: Show branding for ~1 s, then open the aperture ── */
+  setTimeout(() => {
+
+    // Fade the wordmark out as blades swing open
+    if (logoCenter) logoCenter.style.opacity = '0';
+
+    const OPEN_DURATION = 1500; // ms for iris to fully open
+    const startTime = performance.now();
+
+    function step(now) {
+      const t      = Math.min((now - startTime) / OPEN_DURATION, 1);
+      // Ease-in-out cubic — slow start, fast middle, slow finish
+      const eased  = t < 0.5
+        ? 4 * t * t * t
+        : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+      const outerR = eased * maxR;
+      // innerScale: starts at 0.60 (deep blade notches → iris look)
+      // then rises to 1.0 (no notch → smooth iris fully open)
+      const innerScale = 0.60 + 0.40 * eased;
+      const innerR     = outerR * innerScale;
+      // Slight counter-clockwise rotation mimics real aperture blade motion
+      const rotation   = eased * -22.5;
+
+      const pts = buildPoints(outerR, innerR, rotation);
+      hole.setAttribute('points', pts);
+      glow.setAttribute('points', pts);
+      // Blade lines fade out as aperture opens
+      const bladeOpacity = Math.max(0, 1 - eased * 2).toFixed(2);
+      bladesGrp.setAttribute('stroke-opacity', bladeOpacity);
+      buildBladeLines(outerR, rotation);
+
+      if (t < 1) {
+        requestAnimationFrame(step);
+      } else {
+        // Iris fully open — hide loader overlay
+        setTimeout(() => {
+          loader.classList.add('hidden');
+          document.body.style.overflow = '';
+          initScrollAnimations();
+          initCounters();
+        }, 250);
+      }
+    }
+
+    requestAnimationFrame(step);
+
+  }, 1100); // logo display duration
+
 })();
 
 /* ── Custom Cursor ──────────────────────────────────────────── */

@@ -104,47 +104,126 @@ body:has(button:hover) .cursor-follower {
 }
 @media (hover: none) { .cursor, .cursor-follower { display: none; } }
 
-/* ── Loader ────────────────────────────────────────────────── */
+/* ── Skip Link (accessibility + SEO) ───────────────────────── */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 9999;
+  padding: 0.6rem 1.2rem;
+  background: var(--white);
+  color: #0a0a0a;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: top 0.2s;
+}
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* ── Contact link (tel / mailto) ────────────────────────────── */
+.contact-link {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.contact-link:hover {
+  color: var(--accent);
+}
+
+/* ── Aperture Loader ───────────────────────────────────────── */
 .loader {
   position: fixed;
   inset: 0;
-  background: var(--bg);
   z-index: 10000;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+.loader.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Full-viewport SVG iris */
+.aperture-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Center wordmark overlay */
+.aperture-logo-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: opacity 0.6s ease, visibility 0.6s ease;
+  flex-direction: column;
+  pointer-events: none;
+  transition: opacity 0.45s ease;
 }
-.loader.hidden { opacity: 0; visibility: hidden; }
 
-.loader-inner { text-align: center; }
-
-.loader-logo {
+.alc-inner {
   font-family: var(--font-sans);
   font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 300;
   color: var(--text);
-  margin-bottom: 2rem;
   letter-spacing: -0.03em;
+  position: relative;
+  z-index: 2;
+  white-space: nowrap;
 }
-.loader-c { color: var(--accent); }
-.loader-rest { opacity: 0; animation: fadeIn 0.5s 0.3s forwards; }
-.loader-dot { color: var(--accent); opacity: 0; animation: fadeIn 0.3s 0.8s forwards; }
+.alc-c   { color: var(--accent); }
+.alc-dot { color: var(--accent); opacity: 0; animation: alcFade 0.35s 0.75s forwards; }
+.alc-rest { opacity: 0; animation: alcFade 0.5s 0.35s forwards; display: inline-block; }
 
-.loader-bar {
-  width: 200px;
-  height: 2px;
-  background: var(--border-soft);
-  border-radius: 2px;
-  margin: 0 auto;
-  overflow: hidden;
+/* Concentric pulsing aperture rings */
+.alc-rings {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  pointer-events: none;
 }
-.loader-progress {
-  height: 100%;
-  background: linear-gradient(90deg, var(--accent-dim), var(--accent), var(--accent-violet));
-  width: 0%;
-  transition: width 0.05s linear;
-  border-radius: 2px;
+.alc-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 200, 255, 0.18);
+  transform: translate(-50%, -50%);
+  animation: alcRingPulse 3s ease-in-out infinite;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+.alc-ring-1 {
+  width: 130px; height: 130px;
+  animation-delay: 0.5s;
+}
+.alc-ring-2 {
+  width: 200px; height: 200px;
+  border-color: rgba(59, 130, 246, 0.12);
+  animation-delay: 0.7s;
+}
+.alc-ring-3 {
+  width: 270px; height: 270px;
+  border-color: rgba(139, 92, 246, 0.08);
+  animation-delay: 0.9s;
+}
+
+@keyframes alcFade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes alcRingPulse {
+  0%   { opacity: 0; transform: translate(-50%, -50%) scale(0.92); }
+  20%  { opacity: 1; }
+  50%  { transform: translate(-50%, -50%) scale(1.04); }
+  100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
 }
 
 /* ── Navigation ────────────────────────────────────────────── */
@@ -174,18 +253,43 @@ body:has(button:hover) .cursor-follower {
   gap: 2rem;
 }
 .nav-logo {
-  font-family: var(--font-sans);
-  font-size: 1.35rem;
-  font-weight: 600;
-  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
   flex-shrink: 0;
+  text-decoration: none;
 }
+.cylent_logo {
+  display: block;
+  height: 32px;
+  width: auto;
+  max-width: 160px;
+  object-fit: contain;
+  object-position: left center;
+}
+/* Fallback — text logo if image fails or is absent */
 .logo-c { color: var(--accent); }
 .logo-studio {
+  font-family: var(--font-sans);
+  font-size: 1.5rem;
   font-weight: 300;
-  font-size: 0.9em;
-  opacity: 0.7;
-  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding-left: 0.75rem;
+  margin-left: 0.75rem;
+  border-left: 1px solid var(--border-soft);
+  line-height: 1;
+}
+
+@media (max-width: 480px) {
+  .logo-studio { display: none; }
+}
+
+@media (max-width: 768px) {
+  .cylent_logo { height: 26px; max-width: 130px; }
+}
+@media (max-width: 480px) {
+  .cylent_logo { height: 22px; max-width: 110px; }
 }
 
 .nav-links {
@@ -681,22 +785,31 @@ body:has(button:hover) .cursor-follower {
   animation: fadeInUp 0.6s forwards;
   animation-delay: var(--delay, 0s);
 }
-.stat-number {
-  font-family: var(--font-sans);
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--accent-light);
-  line-height: 1;
-  letter-spacing: -0.03em;
+.stat-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  margin: 0 auto 0.6rem;
+  color: var(--accent);
 }
-.stat-plus { font-size: 1.25rem; color: var(--accent-light); vertical-align: top; }
+.stat-icon svg { width: 20px; height: 20px; }
+.stat-value {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 0.01em;
+  margin-bottom: 0.2rem;
+}
 .stat-label {
   display: block;
-  font-size: 0.62rem;
-  letter-spacing: 0.14em;
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--text-muted);
-  margin-top: 0.35rem;
   font-weight: 500;
 }
 
@@ -805,13 +918,16 @@ body:has(button:hover) .cursor-follower {
   z-index: 2;
   box-shadow: 0 0 0 8px var(--bg-alt), 0 0 40px rgba(0, 200, 255, 0.20);
 }
-.badge-number {
-  font-family: var(--font-sans);
-  font-size: 2.5rem;
-  font-weight: 800;
+.badge-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: var(--accent);
-  line-height: 1;
-  letter-spacing: -0.04em;
+  margin-bottom: 0.35rem;
+}
+.badge-icon svg {
+  width: 36px;
+  height: 36px;
 }
 .badge-text {
   font-size: 0.58rem;
