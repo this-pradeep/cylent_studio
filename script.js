@@ -314,12 +314,18 @@ function initCounters() {
   const avatar   = document.getElementById('testiAvatar');
   const nameEl   = document.getElementById('testiName');
   const roleEl   = document.getElementById('testiRole');
+  const pauseBtn = document.getElementById('testiPauseBtn');
   if (!items.length || !quote) return;
 
   let current  = 0;
   let autoTimer;
+  let isPaused = false;
   const total  = items.length;
   const DELAY  = 5000;
+
+  function getActiveFill() {
+    return items[current].querySelector('.tii-fill');
+  }
 
   function resetFill(item) {
     const fill = item.querySelector('.tii-fill');
@@ -327,6 +333,7 @@ function initCounters() {
     fill.style.animation = 'none';
     fill.getBoundingClientRect(); // force reflow
     fill.style.animation = '';
+    fill.style.animationPlayState = isPaused ? 'paused' : 'running';
   }
 
   function goTo(index) {
@@ -364,18 +371,48 @@ function initCounters() {
       resetFill(item);
     }, 320);
 
-    resetAuto();
+    if (!isPaused) resetAuto();
   }
 
   function resetAuto() {
     clearInterval(autoTimer);
-    autoTimer = setInterval(() => goTo(current + 1), DELAY);
+    if (!isPaused) {
+      autoTimer = setInterval(() => goTo(current + 1), DELAY);
+    }
+  }
+
+  function setPaused(state) {
+    isPaused = state;
+
+    // Freeze or resume the progress bar animation
+    const fill = getActiveFill();
+    if (fill) fill.style.animationPlayState = isPaused ? 'paused' : 'running';
+
+    // Toggle timer
+    if (isPaused) {
+      clearInterval(autoTimer);
+    } else {
+      resetAuto();
+    }
+
+    // Update button appearance and icons
+    if (pauseBtn) {
+      pauseBtn.classList.toggle('paused', isPaused);
+      pauseBtn.setAttribute('aria-label', isPaused ? 'Resume testimonials' : 'Pause testimonials');
+      pauseBtn.querySelector('.tpb-pause').style.display = isPaused ? 'none' : 'block';
+      pauseBtn.querySelector('.tpb-play').style.display  = isPaused ? 'block' : 'none';
+    }
   }
 
   // Click on index item
   items.forEach((item, i) => {
     item.addEventListener('click', () => { if (i !== current) goTo(i); });
   });
+
+  // Pause / resume button
+  if (pauseBtn) {
+    pauseBtn.addEventListener('click', () => setPaused(!isPaused));
+  }
 
   // Kick off the first fill animation and auto-rotate
   resetFill(items[0]);

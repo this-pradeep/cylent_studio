@@ -123,32 +123,26 @@
           "ratingValue": "5",
           "bestRating": "5",
           "worstRating": "1",
-          "reviewCount": "4"
+          "reviewCount": "3"
         },
         "review": [
           {
             "@type": "Review",
-            "author": { "@type": "Person", "name": "Aria Pemberton" },
+            "author": { "@type": "Person", "name": "Abhishek Sahu" },
             "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-            "reviewBody": "Cylent Studio captured our wedding in a way that still gives us chills every time we watch it. It doesn't feel like a video — it feels like a film about us."
+            "reviewBody": "Sach mein bolun toh, koi zyada expectation nahi thi. Par jab photos aur video dekhe, genuinely acha laga. Professional hain, kaam mein dum hai — bina soche refer karunga kisi ko bhi."
           },
           {
             "@type": "Review",
-            "author": { "@type": "Person", "name": "David Chen" },
+            "author": { "@type": "Person", "name": "Deepika Yadav" },
             "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-            "reviewBody": "The brand film they produced for us exceeded every expectation. Sales increased 40% after launch."
+            "reviewBody": "Shaadi ke din toh itna sab hota hai, video ke baare mein zyada socha hi nahi tha. Par jab dekhi, genuinely acha laga — moments waise hi the jaise they. Ghar mein sabne pasand ki. Cylent ne accha kaam kiya."
           },
           {
             "@type": "Review",
-            "author": { "@type": "Person", "name": "Margaux Leclerc" },
+            "author": { "@type": "Person", "name": "Golu Rathore" },
             "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-            "reviewBody": "Working with Cylent is unlike any other photographer I've worked with. They don't just take photos — they craft an experience."
-          },
-          {
-            "@type": "Review",
-            "author": { "@type": "Person", "name": "Robert Ashworth" },
-            "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-            "reviewBody": "Our product campaign photos were absolutely stunning. The attention to detail and the ability to make our watches look like art is extraordinary."
+            "reviewBody": "Business ke liye shoot karwaya tha, simple kaam samjha tha. Par jo output aaya, customers ne khud comment kiya — isse pata chala ki actually fark padta hai quality ka. Dobara kaam karunga, zaroor."
           }
         ]
       },
@@ -375,14 +369,14 @@
         <div class="about-visual">
           <div class="about-img-wrap">
             <div class="about-img about-img-1">
-              <!-- <div class="about-img-overlay">
-                <span class="about-img-label">Behind the lens</span>
-              </div> -->
+              <div class="about-img-overlay">
+                <span class="about-img-label">Yogesh Nayak</span>
+              </div>
             </div>
             <div class="about-img about-img-2">
-              <!-- <div class="about-img-overlay">
-                <span class="about-img-label">On location</span>
-              </div> -->
+              <div class="about-img-overlay">
+                <span class="about-img-label">Nimit Rathore</span>
+              </div>
             </div>
             <div class="about-years-badge">
               <div class="badge-icon" aria-hidden="true">
@@ -550,9 +544,9 @@
             </iframe>
           </div>
           <div class="portfolio-info">
-            <span class="portfolio-cat">Wedding Film</span>
-            <h3 class="portfolio-title">Aria &amp; James</h3>
-            <p class="portfolio-loc">Santorini, Greece</p>
+            <span class="portfolio-cat">Bridal Cinematic Film</span>
+            <h3 class="portfolio-title">Deepika Yadav</h3>
+            <p class="portfolio-loc">Indore, India</p>
           </div>
         </article>
 
@@ -703,16 +697,20 @@
 
         <!-- Large feature quote panel -->
         <div class="testi-feature">
+          <button class="testi-pause-btn" id="testiPauseBtn" aria-label="Pause testimonials" title="Pause / Resume">
+            <svg class="tpb-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+            <svg class="tpb-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="display:none"><path d="M8 5v14l11-7z"/></svg>
+          </button>
           <div class="testi-quotemark" aria-hidden="true">&ldquo;</div>
           <p class="testi-stars">★★★★★</p>
           <blockquote class="testi-quote" id="testiQuote">
-            Cylent Studio captured our wedding in a way that still gives us chills every time we watch it. It doesn't feel like a video — it feels like a film about us. We're forever grateful.
+            Sach mein bolun toh, koi zyada expectation nahi thi. Par jab photos aur video dekhe, genuinely acha laga. Professional hain, kaam mein dum hai — bina soche refer karunga kisi ko bhi.
           </blockquote>
           <footer class="testi-author">
-            <div class="testi-avatar" id="testiAvatar" style="background: linear-gradient(135deg, #7c3aed, #ec4899);">A</div>
+            <div class="testi-avatar" id="testiAvatar" style="background: linear-gradient(135deg, #0ea5e9, #3b82f6);">A</div>
             <div class="testi-meta">
-              <strong class="testi-name" id="testiName">Aria Pemberton</strong>
-              <span class="testi-role" id="testiRole">Bride, Santorini Wedding</span>
+              <strong class="testi-name" id="testiName">Abhishek Sahu</strong>
+              <span class="testi-role" id="testiRole">Software Engineer</span>
             </div>
           </footer>
         </div>
@@ -721,49 +719,37 @@
         <nav class="testi-index" id="testiIndex" aria-label="Client testimonials">
 
           <div class="testi-index-item active" data-idx="0"
-               data-quote="Cylent Studio captured our wedding in a way that still gives us chills every time we watch it. It doesn't feel like a video — it feels like a film about us. We're forever grateful."
-               data-name="Aria Pemberton" data-role="Bride, Santorini Wedding"
-               data-init="A" data-grad="linear-gradient(135deg, #7c3aed, #ec4899)">
-            <div class="tii-avatar" style="background: linear-gradient(135deg, #7c3aed, #ec4899);">A</div>
+               data-quote="Sach mein bolun toh, koi zyada expectation nahi thi. Par jab photos aur video dekhe, genuinely acha laga. Professional hain, kaam mein dum hai — bina soche refer karunga kisi ko bhi."
+               data-name="Abhishek Sahu" data-role="Software Engineer"
+               data-init="A" data-grad="linear-gradient(135deg, #0ea5e9, #3b82f6)">
+            <div class="tii-avatar" style="background: linear-gradient(135deg, #0ea5e9, #3b82f6);">A</div>
             <div class="tii-info">
-              <strong>Aria Pemberton</strong>
-              <span>Bride, Santorini Wedding</span>
+              <strong>Abhishek Sahu</strong>
+              <span>Software Engineer</span>
             </div>
             <div class="tii-line"><span class="tii-fill"></span></div>
           </div>
 
           <div class="testi-index-item" data-idx="1"
-               data-quote="The brand film they produced for us exceeded every expectation. The team was professional, creative, and truly understood our brand identity. Sales increased 40% after launch."
-               data-name="David Chen" data-role="CEO, Verdant Spirits"
-               data-init="D" data-grad="linear-gradient(135deg, #059669, #0ea5e9)">
-            <div class="tii-avatar" style="background: linear-gradient(135deg, #059669, #0ea5e9);">D</div>
+               data-quote="Shaadi ke din toh itna sab hota hai, video ke baare mein zyada socha hi nahi tha. Par jab dekhi, genuinely acha laga — moments waise hi the jaise they. Ghar mein sabne pasand ki. Cylent ne accha kaam kiya."
+               data-name="Deepika Yadav" data-role="Bride"
+               data-init="D" data-grad="linear-gradient(135deg, #7c3aed, #ec4899)">
+            <div class="tii-avatar" style="background: linear-gradient(135deg, #7c3aed, #ec4899);">D</div>
             <div class="tii-info">
-              <strong>David Chen</strong>
-              <span>CEO, Verdant Spirits</span>
+              <strong>Deepika Yadav</strong>
+              <span>Bride</span>
             </div>
             <div class="tii-line"><span class="tii-fill"></span></div>
           </div>
 
           <div class="testi-index-item" data-idx="2"
-               data-quote="Working with Cylent is unlike any other photographer I've worked with. They don't just take photos — they craft an experience. My editorial spread was breathtaking."
-               data-name="Margaux Leclerc" data-role="Fashion Model"
-               data-init="M" data-grad="linear-gradient(135deg, #b45309, #dc2626)">
-            <div class="tii-avatar" style="background: linear-gradient(135deg, #b45309, #dc2626);">M</div>
+               data-quote="Business ke liye shoot karwaya tha, simple kaam samjha tha. Par jo output aaya, customers ne khud comment kiya — isse pata chala ki actually fark padta hai quality ka. Dobara kaam karunga, zaroor."
+               data-name="Golu Rathore" data-role="Businessman"
+               data-init="G" data-grad="linear-gradient(135deg, #f59e0b, #ef4444)">
+            <div class="tii-avatar" style="background: linear-gradient(135deg, #f59e0b, #ef4444);">G</div>
             <div class="tii-info">
-              <strong>Margaux Leclerc</strong>
-              <span>Fashion Model</span>
-            </div>
-            <div class="tii-line"><span class="tii-fill"></span></div>
-          </div>
-
-          <div class="testi-index-item" data-idx="3"
-               data-quote="Our product campaign photos were absolutely stunning. The attention to detail and the ability to make our watches look like art is extraordinary. Highly recommend."
-               data-name="Robert Ashworth" data-role="Creative Dir., Obsidian Watches"
-               data-init="R" data-grad="linear-gradient(135deg, #3b82f6, #0ea5e9)">
-            <div class="tii-avatar" style="background: linear-gradient(135deg, #3b82f6, #0ea5e9);">R</div>
-            <div class="tii-info">
-              <strong>Robert Ashworth</strong>
-              <span>Creative Dir., Obsidian Watches</span>
+              <strong>Golu Rathore</strong>
+              <span>Businessman</span>
             </div>
             <div class="tii-line"><span class="tii-fill"></span></div>
           </div>
@@ -791,121 +777,92 @@
   <!-- ======================== CONTACT ======================== -->
   <section class="contact section" id="contact">
     <div class="container">
-      <div class="contact-grid">
-        <div class="contact-info">
-          <div class="section-tag reveal-left">Get in Touch</div>
-          <h2 class="section-title reveal-left" style="--delay: 0.1s">Let's Make Something <em>Beautiful</em></h2>
-          <p class="contact-desc reveal-left" style="--delay: 0.2s">
-            Whether it's a wedding, a brand film, or a portrait session — we'd love to hear about your vision. Reach out and let's start the conversation.
-          </p>
-          <address class="contact-details reveal-left" style="--delay: 0.3s">
-            <div class="contact-detail">
-              <div class="contact-detail-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
-                  <circle cx="12" cy="10" r="3"/>
-                </svg>
-              </div>
-              <div>
-                <div class="contact-detail-label">Studio</div>
-                <div class="contact-detail-value">Indore, India</div>
-              </div>
+      <div class="contact-centered">
+
+        <!-- Section Header -->
+        <div class="section-tag reveal-up">Get in Touch</div>
+        <h2 class="section-title reveal-up" style="--delay: 0.1s">Let's Make Something <em>Beautiful</em></h2>
+        <p class="contact-desc reveal-up" style="--delay: 0.2s">
+          Whether it's a wedding, a brand film, or a portrait session —<br/>reach out directly and let's bring your vision to life.
+        </p>
+
+        <!-- Contact Details Bar -->
+        <address class="contact-details-row reveal-up" style="--delay: 0.3s">
+          <div class="contact-card">
+            <div class="contact-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
             </div>
-            <div class="contact-detail">
-              <div class="contact-detail-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.7A2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.56-.56a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/>
-                </svg>
-              </div>
-              <div>
-                <div class="contact-detail-label">Phone</div>
-                <div class="contact-detail-value"><a href="tel:+919630390748" class="contact-link">+91 96303 90748</a></div>
-              </div>
-            </div>
-            <div class="contact-detail">
-              <div class="contact-detail-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                  <polyline points="22,6 12,13 2,6"/>
-                </svg>
-              </div>
-              <div>
-                <div class="contact-detail-label">Email</div>
-                <div class="contact-detail-value"><a href="mailto:yogeshnayak000000@gmail.com" class="contact-link">yogeshnayak000000@gmail.com</a></div>
-              </div>
-            </div>
-          </address>
-          <div class="contact-social reveal-left" style="--delay: 0.4s">
-            <a href="#" class="social-link" aria-label="Instagram">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <rect x="2" y="2" width="20" height="20" rx="5"/>
-                <circle cx="12" cy="12" r="4"/>
-                <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
-              </svg>
-            </a>
-            <a href="#" class="social-link" aria-label="YouTube">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/>
-                <polygon points="9.75,15.02 15.5,12 9.75,8.98 9.75,15.02" fill="currentColor" stroke="none"/>
-              </svg>
-            </a>
-            <a href="#" class="social-link" aria-label="Vimeo">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M22 7.42c-.09 2.01-1.49 4.76-4.21 8.26C14.96 19.3 12.63 21 10.71 21c-1.19 0-2.2-1.1-3.03-3.32L6.24 13.1C5.6 10.88 4.93 9.77 4.2 9.77c-.16 0-.71.33-1.66.99L1.5 9.64c1.05-.92 2.08-1.84 3.1-2.77 1.4-1.21 2.45-1.85 3.15-1.91 1.65-.16 2.67.97 3.05 3.38.41 2.6.7 4.22.85 4.86.47 2.15.99 3.22 1.55 3.22.44 0 1.1-.7 1.98-2.09.88-1.39 1.35-2.45 1.41-3.18.13-1.2-.34-1.8-1.41-1.8-.5 0-1.02.11-1.55.34.97-3.2 2.83-4.76 5.59-4.67 2.04.06 3 1.38 2.88 3.98z"/>
-              </svg>
-            </a>
-            <a href="#" class="social-link" aria-label="LinkedIn">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/>
-                <rect x="2" y="9" width="4" height="12"/>
-                <circle cx="4" cy="4" r="2"/>
-              </svg>
-            </a>
+            <div class="contact-card-label">Studio</div>
+            <div class="contact-card-value">Indore, India</div>
           </div>
+          <div class="contact-card-sep" aria-hidden="true"></div>
+          <div class="contact-card">
+            <div class="contact-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.7A2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.56-.56a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/>
+              </svg>
+            </div>
+            <div class="contact-card-label">Phone</div>
+            <div class="contact-card-value"><a href="tel:+919630390748" class="contact-link">+91 96303 90748</a></div>
+          </div>
+          <div class="contact-card-sep" aria-hidden="true"></div>
+          <div class="contact-card">
+            <div class="contact-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </div>
+            <div class="contact-card-label">Email</div>
+            <div class="contact-card-value"><a href="mailto:yogeshnayak000000@gmail.com" class="contact-link">yogeshnayak000000@gmail.com</a></div>
+          </div>
+        </address>
+
+        <!-- WhatsApp CTA -->
+        <div class="contact-wa-wrap reveal-up" style="--delay: 0.4s">
+          <p class="contact-wa-eyebrow">We respond within minutes — start the conversation now.</p>
+          <a href="https://wa.me/919630390748" target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
+            <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            <span>Chat on WhatsApp</span>
+            <span class="wa-arrow">→</span>
+          </a>
+          <p class="contact-wa-note">No forms. No waiting. Just a direct conversation.</p>
         </div>
 
-        <div class="contact-form-wrap reveal-right">
-          <form class="contact-form" id="contactForm" novalidate>
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" for="name">Full Name</label>
-                <input class="form-input" type="text" id="name" name="name" placeholder="Your name" required />
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="email">Email Address</label>
-                <input class="form-input" type="email" id="email" name="email" placeholder="your@email.com" required />
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="service">Service Interest</label>
-              <select class="form-input form-select" id="service" name="service">
-                <option value="" disabled selected>Select a service</option>
-                <option value="videography">Videography</option>
-                <option value="photography">Photography</option>
-                <option value="post">Post-Production</option>
-                <option value="drone">Aerial / Drone</option>
-                <option value="wedding">Wedding Package</option>
-                <option value="other">Other / Multiple</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="date">Project Date (if known)</label>
-              <input class="form-input" type="date" id="date" name="date" />
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="message">Tell Us About Your Project</label>
-              <textarea class="form-input form-textarea" id="message" name="message" placeholder="Describe your vision, goals, and any details that matter to you..." required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
-              <span class="btn-text">Send Enquiry</span>
-              <span class="btn-icon">→</span>
-            </button>
-            <div class="form-success" id="formSuccess">
-              <div class="success-icon">✓</div>
-              <div class="success-text">Message sent! We'll be in touch within 24 hours.</div>
-            </div>
-          </form>
+        <!-- Social Links -->
+        <div class="contact-social reveal-up" style="--delay: 0.5s">
+          <a href="#" class="social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="2" y="2" width="20" height="20" rx="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
+            </svg>
+          </a>
+          <a href="#" class="social-link" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/>
+              <polygon points="9.75,15.02 15.5,12 9.75,8.98 9.75,15.02" fill="currentColor" stroke="none"/>
+            </svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Vimeo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M22 7.42c-.09 2.01-1.49 4.76-4.21 8.26C14.96 19.3 12.63 21 10.71 21c-1.19 0-2.2-1.1-3.03-3.32L6.24 13.1C5.6 10.88 4.93 9.77 4.2 9.77c-.16 0-.71.33-1.66.99L1.5 9.64c1.05-.92 2.08-1.84 3.1-2.77 1.4-1.21 2.45-1.85 3.15-1.91 1.65-.16 2.67.97 3.05 3.38.41 2.6.7 4.22.85 4.86.47 2.15.99 3.22 1.55 3.22.44 0 1.1-.7 1.98-2.09.88-1.39 1.35-2.45 1.41-3.18.13-1.2-.34-1.8-1.41-1.8-.5 0-1.02.11-1.55.34.97-3.2 2.83-4.76 5.59-4.67 2.04.06 3 1.38 2.88 3.98z"/>
+            </svg>
+          </a>
+          <a href="#" class="social-link" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/>
+              <rect x="2" y="9" width="4" height="12"/>
+              <circle cx="4" cy="4" r="2"/>
+            </svg>
+          </a>
         </div>
+
       </div>
     </div>
   </section>
