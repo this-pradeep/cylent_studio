@@ -875,6 +875,9 @@ body:has(button:hover) .cursor-follower {
   height: 80%;
   top: 0;
   left: 0;
+  background-image: url("./img/yogi.jpg");
+  background-size: cover;
+  background-position: center;
   box-shadow: var(--shadow);
 }
 .about-img-2 {
@@ -883,12 +886,15 @@ body:has(button:hover) .cursor-follower {
   bottom: 0;
   right: 0;
   box-shadow: var(--shadow);
+   background-image: url("./img/1.jpg");
+  background-size: cover;
+  background-position: center;
 }
 .about-img:hover { transform: scale(1.02); }
 .about-img-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%);
+  /* background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%); */
   display: flex;
   align-items: flex-end;
   padding: 1.25rem;
