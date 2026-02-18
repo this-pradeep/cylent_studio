@@ -1220,18 +1220,50 @@ body:has(button:hover) .cursor-follower {
   overflow: visible;
 }
 
-/* ── Base card ── */
+/*
+ * Each .collage-card is wrapped in an <a> tag, so the direct children
+ * of .collage-wrap are <a> elements. nth-child transforms must target
+ * those <a> wrappers, not .collage-card (which is always nth-child(1)
+ * inside its own <a> and would get the same rotation every time).
+ */
+
+/* ── <a> wrapper — layout + transition ── */
+.collage-wrap > a {
+  display: block;
+  text-decoration: none;
+  transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);
+}
+
+/* Per-position: rotation + stagger baked into one transform.
+   Odd positions tilt LEFT, even positions tilt RIGHT + drop 2rem. */
+.collage-wrap > a:nth-child(1)  { transform: rotate(-3deg)   translateY(0);    }
+.collage-wrap > a:nth-child(2)  { transform: rotate(2.5deg)  translateY(2rem); }
+.collage-wrap > a:nth-child(3)  { transform: rotate(-2deg)   translateY(0);    }
+.collage-wrap > a:nth-child(4)  { transform: rotate(3.5deg)  translateY(2rem); }
+.collage-wrap > a:nth-child(5)  { transform: rotate(-3.5deg) translateY(0);    }
+.collage-wrap > a:nth-child(6)  { transform: rotate(2deg)    translateY(2rem); }
+.collage-wrap > a:nth-child(7)  { transform: rotate(-2.5deg) translateY(0);    }
+.collage-wrap > a:nth-child(8)  { transform: rotate(3deg)    translateY(2rem); }
+.collage-wrap > a:nth-child(9)  { transform: rotate(-2deg)   translateY(0);    }
+.collage-wrap > a:nth-child(10) { transform: rotate(4deg)    translateY(2rem); }
+
+/* Hover: straighten + lift */
+.collage-wrap > a:hover {
+  transform: rotate(0deg) scale(1.04);
+  z-index: 10;
+}
+.collage-wrap > a:hover .collage-card {
+  box-shadow: 0 32px 80px rgba(0,0,0,0.82), 0 0 48px rgba(0,200,255,0.09);
+}
+
+/* ── Base card (visual styles only, no transform) ── */
 .collage-card {
-  --rot: 0deg;
   position: relative;
   overflow: hidden;
   border-radius: 6px;
-  aspect-ratio: 2 / 3;   /* portrait — matches yogi.jpg & 1.jpg ratio */
-  transform: rotate(var(--rot));
+  aspect-ratio: 2 / 3;
   box-shadow: 0 18px 48px rgba(0,0,0,0.65), 0 0 0 1px rgba(255,255,255,0.07);
-  transition: transform 0.5s cubic-bezier(0.16,1,0.3,1),
-              box-shadow 0.5s cubic-bezier(0.16,1,0.3,1),
-              z-index 0s;
+  transition: box-shadow 0.5s cubic-bezier(0.16,1,0.3,1);
   cursor: pointer;
 }
 .collage-card img {
@@ -1254,31 +1286,6 @@ body:has(button:hover) .cursor-follower {
   padding: 0.22rem 0.55rem;
   border-radius: 100px;
   backdrop-filter: blur(8px);
-}
-
-/* ── Unique rotations per position (covers up to 10 photos) ── */
-.collage-card:nth-child(1)  { --rot: -2.5deg; }
-.collage-card:nth-child(2)  { --rot:  2deg;   }
-.collage-card:nth-child(3)  { --rot: -1.5deg; }
-.collage-card:nth-child(4)  { --rot:  3deg;   }
-.collage-card:nth-child(5)  { --rot: -3deg;   }
-.collage-card:nth-child(6)  { --rot:  1.5deg; }
-.collage-card:nth-child(7)  { --rot: -2deg;   }
-.collage-card:nth-child(8)  { --rot:  2.5deg; }
-.collage-card:nth-child(9)  { --rot: -1deg;   }
-.collage-card:nth-child(10) { --rot:  3.5deg; }
-
-/* ── Vertical stagger — 2nd & 4th card in every row drop down ── */
-.collage-card:nth-child(4n+2),
-.collage-card:nth-child(4n+4) {
-  margin-top: 2.5rem;
-}
-
-/* ── Hover: straighten + lift + glow ── */
-.collage-card:hover {
-  transform: rotate(0deg) scale(1.04);
-  z-index: 10;
-  box-shadow: 0 32px 80px rgba(0,0,0,0.82), 0 0 48px rgba(0,200,255,0.09);
 }
 
 /* ── Shared text ─────────────────────────────────────────── */
@@ -1912,8 +1919,7 @@ body:has(button:hover) .cursor-follower {
   .services-grid { grid-template-columns: 1fr; }
   .pf-videos { grid-template-columns: 1fr; }
   .collage-wrap { grid-template-columns: repeat(2, 1fr); }
-  .collage-card:nth-child(4n+2),
-  .collage-card:nth-child(4n+4) { margin-top: 1.5rem; }
+  .collage-wrap > a:nth-child(even) { transform: rotate(2.5deg) translateY(1.25rem); }
   .process-steps { grid-template-columns: 1fr; }
   .footer-links-wrap { grid-template-columns: repeat(2, 1fr); }
   .form-row { grid-template-columns: 1fr; }
