@@ -1770,7 +1770,7 @@ body:has(button:hover) .cursor-follower {
 }
 
 /* ─ Social row ─ */
-.contact-social { display: flex; gap: 0.75rem; justify-content: center; }
+.contact-social { display: flex; gap: 0.75rem; justify-content: center; margin-top: 2rem; }
 .social-link {
   width: 44px;
   height: 44px;
