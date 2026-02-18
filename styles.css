@@ -281,15 +281,18 @@ body:has(button:hover) .cursor-follower {
   line-height: 1;
 }
 
-@media (max-width: 480px) {
-  .logo-studio { display: none; }
-}
-
 @media (max-width: 768px) {
   .cylent_logo { height: 26px; max-width: 130px; }
 }
 @media (max-width: 480px) {
-  .cylent_logo { height: 22px; max-width: 110px; }
+  .cylent_logo { height: 20px; max-width: 100px; }
+  .logo-studio {
+    font-size: 1.1rem;
+    padding-left: 0.5rem;
+    margin-left: 0.5rem;
+    letter-spacing: 0.12em;
+  }
+  .nav-container { padding: 0 1rem; }
 }
 
 .nav-links {
@@ -630,6 +633,7 @@ body:has(button:hover) .cursor-follower {
   z-index: 2;
   text-align: center;
   padding: calc(var(--nav-h) + 2rem) 2rem 6rem;
+  width: 100%;
   max-width: 900px;
 }
 
