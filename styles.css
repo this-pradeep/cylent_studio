@@ -1116,47 +1116,168 @@ body:has(button:hover) .cursor-follower {
   color: #0a0a0a;
 }
 
-.portfolio-grid {
+/* ── filter hide/show ─────────────────────────────────────── */
+[data-filter-group] {
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+[data-filter-group].pf-hidden {
+  display: none;
+}
+
+/* ── Video Cards ─────────────────────────────────────────── */
+.pf-videos {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 280px;
-  gap: 1.5px;
-  background: var(--border-soft);
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 5rem;
+}
+
+.video-card {
   border-radius: var(--radius-lg);
   overflow: hidden;
+  background: #0a0c12;
+  border: 1px solid rgba(255,255,255,0.06);
+  transition: transform 0.45s cubic-bezier(0.16,1,0.3,1), box-shadow 0.45s;
+}
+.video-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 28px 64px rgba(0,0,0,0.55), 0 0 0 1px rgba(0,200,255,0.12);
 }
 
-.portfolio-item {
+.video-embed-wrap {
   position: relative;
-  overflow: hidden;
-  cursor: pointer;
+  padding-top: 56.25%; /* 16:9 */
 }
-.portfolio-item.large { grid-column: span 2; }
-.portfolio-item.tall  { grid-row: span 2; }
-.portfolio-item.hidden { display: none; }
-
-.portfolio-media {
+.video-embed-wrap iframe {
   position: absolute;
   inset: 0;
-  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Coming-soon placeholder */
+.video-placeholder {
+  background: radial-gradient(ellipse at 55% 35%, #111827 0%, #07090f 75%);
+}
+.vp-inner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.vp-icon-wrap {
+  width: 64px;
+  height: 64px;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  background: rgba(255,255,255,0.03);
 }
-.portfolio-item:hover .portfolio-media { transform: scale(1.06); }
+.vp-icon {
+  width: 28px;
+  height: 28px;
+  color: rgba(255,255,255,0.25);
+}
+.vp-label {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.22);
+}
 
-.portfolio-info {
+.video-card-info {
+  padding: 1.25rem 1.5rem 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+/* ── Photo Collage ───────────────────────────────────────── */
+.pf-collage {
+  margin-bottom: 3rem;
+}
+
+/*
+ * Grid-based collage — scales automatically from 2 → 10 photos.
+ * Each card gets a unique rotation via --rot + a vertical stagger
+ * on every 2nd & 4th column so rows feel organic, not rigid.
+ */
+.collage-wrap {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  padding: 1rem 0 3.5rem;
+  /* overflow visible so rotated corners aren't clipped */
+  overflow: visible;
+}
+
+/* ── Base card ── */
+.collage-card {
+  --rot: 0deg;
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+  aspect-ratio: 2 / 3;   /* portrait — matches yogi.jpg & 1.jpg ratio */
+  transform: rotate(var(--rot));
+  box-shadow: 0 18px 48px rgba(0,0,0,0.65), 0 0 0 1px rgba(255,255,255,0.07);
+  transition: transform 0.5s cubic-bezier(0.16,1,0.3,1),
+              box-shadow 0.5s cubic-bezier(0.16,1,0.3,1),
+              z-index 0s;
+  cursor: pointer;
+}
+.collage-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+.collage-card-tag {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 1.5rem;
-  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%);
-  transform: translateY(8px);
-  transition: transform 0.4s;
+  bottom: 0.75rem;
+  left: 0.75rem;
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--accent-light);
+  background: rgba(0,0,0,0.65);
+  padding: 0.22rem 0.55rem;
+  border-radius: 100px;
+  backdrop-filter: blur(8px);
 }
-.portfolio-item:hover .portfolio-info { transform: translateY(0); }
 
+/* ── Unique rotations per position (covers up to 10 photos) ── */
+.collage-card:nth-child(1)  { --rot: -2.5deg; }
+.collage-card:nth-child(2)  { --rot:  2deg;   }
+.collage-card:nth-child(3)  { --rot: -1.5deg; }
+.collage-card:nth-child(4)  { --rot:  3deg;   }
+.collage-card:nth-child(5)  { --rot: -3deg;   }
+.collage-card:nth-child(6)  { --rot:  1.5deg; }
+.collage-card:nth-child(7)  { --rot: -2deg;   }
+.collage-card:nth-child(8)  { --rot:  2.5deg; }
+.collage-card:nth-child(9)  { --rot: -1deg;   }
+.collage-card:nth-child(10) { --rot:  3.5deg; }
+
+/* ── Vertical stagger — 2nd & 4th card in every row drop down ── */
+.collage-card:nth-child(4n+2),
+.collage-card:nth-child(4n+4) {
+  margin-top: 2.5rem;
+}
+
+/* ── Hover: straighten + lift + glow ── */
+.collage-card:hover {
+  transform: rotate(0deg) scale(1.04);
+  z-index: 10;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.82), 0 0 48px rgba(0,200,255,0.09);
+}
+
+/* ── Shared text ─────────────────────────────────────────── */
 .portfolio-cat {
   font-size: 0.62rem;
   font-weight: 600;
@@ -1177,27 +1298,6 @@ body:has(button:hover) .cursor-follower {
 .portfolio-loc {
   font-size: 0.72rem;
   color: rgba(255, 255, 255, 0.45);
-}
-
-.portfolio-play {
-  width: 56px;
-  height: 56px;
-  border: 1.5px solid rgba(255,255,255,0.55);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  transition: all 0.3s;
-  position: relative;
-  z-index: 1;
-}
-.portfolio-play svg { width: 20px; height: 20px; margin-left: 3px; }
-.portfolio-item:hover .portfolio-play {
-  background: var(--accent);
-  border-color: var(--accent);
-  transform: scale(1.1);
-  box-shadow: 0 0 30px rgba(0, 200, 255, 0.50);
 }
 
 .portfolio-more { text-align: center; margin-top: 3rem; }
@@ -1709,6 +1809,8 @@ body:has(button:hover) .cursor-follower {
   margin-bottom: 2rem;
 }
 .footer-logo {
+  display: flex;
+  align-items: center;
   font-family: var(--font-sans);
   font-size: 1.5rem;
   font-weight: 600;
@@ -1767,8 +1869,8 @@ body:has(button:hover) .cursor-follower {
 /* ── Responsive ────────────────────────────────────────────── */
 @media (max-width: 1100px) {
   .services-grid { grid-template-columns: repeat(2, 1fr); }
-  .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
-  .portfolio-item.large { grid-column: span 1; }
+  .pf-videos { gap: 1rem; }
+  .collage-wrap { grid-template-columns: repeat(3, 1fr); }
   .process-steps { grid-template-columns: repeat(2, 1fr); }
   .step-line { display: none; }
   .about-grid { gap: 3.5rem; }
@@ -1804,8 +1906,10 @@ body:has(button:hover) .cursor-follower {
   .nav-links, .nav-cta { display: none; }
   .hamburger { display: flex; }
   .services-grid { grid-template-columns: 1fr; }
-  .portfolio-grid { grid-template-columns: 1fr; grid-auto-rows: 260px; }
-  .portfolio-item.tall { grid-row: span 1; }
+  .pf-videos { grid-template-columns: 1fr; }
+  .collage-wrap { grid-template-columns: repeat(2, 1fr); }
+  .collage-card:nth-child(4n+2),
+  .collage-card:nth-child(4n+4) { margin-top: 1.5rem; }
   .process-steps { grid-template-columns: 1fr; }
   .footer-links-wrap { grid-template-columns: repeat(2, 1fr); }
   .form-row { grid-template-columns: 1fr; }

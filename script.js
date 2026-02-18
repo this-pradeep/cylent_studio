@@ -275,7 +275,7 @@ function initCounters() {
 /* ── Portfolio Filter ───────────────────────────────────────── */
 (function initPortfolioFilter() {
   const filterBtns = document.querySelectorAll('.filter-btn');
-  const items      = document.querySelectorAll('.portfolio-item');
+  const groups     = document.querySelectorAll('[data-filter-group]');
   if (!filterBtns.length) return;
 
   filterBtns.forEach(btn => {
@@ -284,23 +284,14 @@ function initCounters() {
       btn.classList.add('active');
       const filter = btn.dataset.filter;
 
-      items.forEach(item => {
-        const cats = item.dataset.category || '';
-        const show = filter === 'all' || cats.split(' ').includes(filter);
+      groups.forEach(group => {
+        const groupKey = group.dataset.filterGroup;
+        const show     = filter === 'all' || groupKey === filter;
 
-        item.style.transition = 'opacity 0.4s, transform 0.4s';
         if (show) {
-          item.classList.remove('hidden');
-          requestAnimationFrame(() => {
-            item.style.opacity   = '1';
-            item.style.transform = 'scale(1)';
-          });
+          group.classList.remove('pf-hidden');
         } else {
-          item.style.opacity   = '0';
-          item.style.transform = 'scale(0.95)';
-          setTimeout(() => {
-            item.classList.add('hidden');
-          }, 400);
+          group.classList.add('pf-hidden');
         }
       });
     });
