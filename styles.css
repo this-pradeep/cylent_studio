@@ -171,18 +171,33 @@ body:has(button:hover) .cursor-follower {
 }
 
 .alc-inner {
-  font-family: var(--font-sans);
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  font-weight: 300;
-  color: var(--text);
-  letter-spacing: -0.03em;
+  display: flex;
+  align-items: center;
   position: relative;
   z-index: 2;
   white-space: nowrap;
 }
-.alc-c   { color: var(--accent); }
-.alc-dot { color: var(--accent); opacity: 0; animation: alcFade 0.35s 0.75s forwards; }
-.alc-rest { opacity: 0; animation: alcFade 0.5s 0.35s forwards; display: inline-block; }
+.alc-logo {
+  height: clamp(28px, 4.5vw, 42px);
+  width: auto;
+  display: block;
+  opacity: 0;
+  animation: alcFade 0.6s 0.25s forwards;
+}
+.alc-studio {
+  font-family: var(--font-sans);
+  font-size: clamp(0.9rem, 1.8vw, 1.4rem);
+  font-weight: 300;
+  color: var(--text-muted);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding-left: 0.75rem;
+  margin-left: 0.75rem;
+  border-left: 1px solid var(--border-soft);
+  line-height: 1;
+  opacity: 0;
+  animation: alcFade 0.5s 0.6s forwards;
+}
 
 /* Concentric pulsing aperture rings */
 .alc-rings {
